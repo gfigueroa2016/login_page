@@ -20,12 +20,19 @@ namespace LoginApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\LoginApp\DB\LoginDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
-            string query = "Select * from tbl_Login Where username = '" + txtUsername.Text.Trim() + "' and password = '" + txtPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
-            DataTable dtbl = new DataTable();
-            sda.Fill(dtbl);
-            if (dtbl.Rows.Count == 1)
+            //SqlConnection sqlcon = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\LoginApp\DB\LoginDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
+            //string query = "Select * from tbl_Login Where username = '" + txtUsername.Text.Trim() + "' and password = '" + txtPassword.Text.Trim() + "'";
+            //SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
+            //DataTable dtbl = new DataTable();
+            //sda.Fill(dtbl);
+            //if (dtbl.Rows.Count == 1)
+            //{
+            //    frmMain objFrmMain = new frmMain();
+            //    this.Hide();
+            //    objFrmMain.Show();
+            //}
+            Users user = new Users(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            if (user._Username != null && user._Password != null)
             {
                 frmMain objFrmMain = new frmMain();
                 this.Hide();
